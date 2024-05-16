@@ -56,11 +56,11 @@ export default function App() {
 
   return (
     <>
-      <ListingDetailsScreen />
+      {/* <ListingDetailsScreen /> */}
       {/* <Card title={"Clothes"} subTitle={"$100"} image={require(`./assets/jacket.jpg`)} /> */}
         {/* <ButtonComponent title={"Login"} onPress={() => {console.log("tapped")}} />  */}
       {/* <WelcomeScreen /> */}
-      {/* <ViewImageScreen /> */}
+      <ViewImageScreen /> 
       {/* <View
         style={{
           width: 100,
