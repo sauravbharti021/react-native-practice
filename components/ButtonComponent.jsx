@@ -13,11 +13,11 @@ const ButtonComponent = ({title, onPress, color}) => {
 const styles = StyleSheet.create({
     button: {
         width: '100%',
-        padding: 20,
-        backgroundColor: colors.primary,
+        paddingVertical: 20,
+        // backgroundColor: colors.primary,
         borderRadius: 20,
         justifyContent: 'space-around',
-        margin: 5
+        overflow: 'hidden'
     },
     textButton: {
         textAlign: 'center',
