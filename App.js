@@ -32,6 +32,7 @@ import Screen from "./config/Screen";
 import PracticeComponent from "./components/PracticeComponent";
 import AppTextInput from "./config/AppTextInput";
 import AppPicker from "./config/AppPicker";
+import LoginScreen from "./components/LoginScreen";
 
 export default function App() {
   console.log(Dimensions.get("window"), "window");
@@ -77,8 +78,9 @@ export default function App() {
 
   return (
     <>
-      <Screen>
-        {/* <PracticeComponent /> */}
+      <LoginScreen />
+      {/* <Screen>
+        <PracticeComponent />
         <AppPicker 
           icon="apps" 
           items={categories} 
@@ -87,7 +89,8 @@ export default function App() {
           onSelectItem = {item => setCategory(item)}
         />
         <AppTextInput icon="email" placeholder="Email" />
-      </Screen>
+      </Screen> */}
+      
       {/* <ProfileComponent title="Mosh Bhai" subTitle="Moshbhai123@gmail.com" /> */}
       {/* <MessagesScreen /> */}
       {/* <ListingDetailsScreen /> */}
