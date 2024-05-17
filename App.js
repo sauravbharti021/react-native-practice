@@ -26,6 +26,8 @@ import style from "./config/styles";
 import ButtonComponent from "./components/ButtonComponent";
 import Card from "./components/Card";
 import ListingDetailsScreen from "./components/ListingDetailsScreen";
+import MessagesScreen from "./components/MessagesScreen";
+import ProfileComponent from "./components/ProfileComponent";
 
 export default function App() {
   console.log(Dimensions.get("window"), "window");
@@ -56,11 +58,13 @@ export default function App() {
 
   return (
     <>
+      <ProfileComponent title="Mosh Bhai" subTitle="Moshbhai123@gmail.com" />
+      {/* <MessagesScreen /> */}
       {/* <ListingDetailsScreen /> */}
       {/* <Card title={"Clothes"} subTitle={"$100"} image={require(`./assets/jacket.jpg`)} /> */}
         {/* <ButtonComponent title={"Login"} onPress={() => {console.log("tapped")}} />  */}
       {/* <WelcomeScreen /> */}
-      <ViewImageScreen /> 
+      {/* <ViewImageScreen />  */}
       {/* <View
         style={{
           width: 100,
