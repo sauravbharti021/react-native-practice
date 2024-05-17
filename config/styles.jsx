@@ -1,10 +1,10 @@
 import { StyleSheet, Platform } from 'react-native'
+import colors from './colors';
 
-const style = StyleSheet.create({
+export default {
     text: {
         fontSize: 18,
-        fontFamily: Platform.OS == 'ios' ? 'Courier' : 'Roboto'
-    }
-})
-
-export default style;
+        fontFamily: Platform.OS == 'ios' ? 'Courier' : 'Roboto',
+        color: colors.dark,
+    },
+}

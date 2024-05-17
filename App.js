@@ -21,13 +21,17 @@ import {
 import WelcomeScreen from "./components/WelcomeScreen";
 import ViewImageScreen from "./components/ViewImageScreen";
 import AppText from "./config/AppText";
-import {MaterialCommunityIcons} from '@expo/vector-icons'
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import style from "./config/styles";
 import ButtonComponent from "./components/ButtonComponent";
 import Card from "./components/Card";
 import ListingDetailsScreen from "./components/ListingDetailsScreen";
 import MessagesScreen from "./components/MessagesScreen";
 import ProfileComponent from "./components/ProfileComponent";
+import Screen from "./config/Screen";
+import PracticeComponent from "./components/PracticeComponent";
+import AppTextInput from "./config/AppTextInput";
+import AppPicker from "./config/AppPicker";
 
 export default function App() {
   console.log(Dimensions.get("window"), "window");
@@ -54,15 +58,41 @@ export default function App() {
     console.log("pressed text, ...");
   };
 
-  useEffect(() => {}, []);
+  const categories = [
+    {
+      label: "Furniture",
+      value: 1,
+    },
+    {
+      label: "Clothing",
+      value: 2,
+    },
+    {
+      label: "Camera",
+      value: 3,
+    },
+  ];
+
+  const [category, setCategory] = useState();
 
   return (
     <>
-      <ProfileComponent title="Mosh Bhai" subTitle="Moshbhai123@gmail.com" />
+      <Screen>
+        {/* <PracticeComponent /> */}
+        <AppPicker 
+          icon="apps" 
+          items={categories} 
+          placeholder="Category"
+          selectedItem={category}
+          onSelectItem = {item => setCategory(item)}
+        />
+        <AppTextInput icon="email" placeholder="Email" />
+      </Screen>
+      {/* <ProfileComponent title="Mosh Bhai" subTitle="Moshbhai123@gmail.com" /> */}
       {/* <MessagesScreen /> */}
       {/* <ListingDetailsScreen /> */}
       {/* <Card title={"Clothes"} subTitle={"$100"} image={require(`./assets/jacket.jpg`)} /> */}
-        {/* <ButtonComponent title={"Login"} onPress={() => {console.log("tapped")}} />  */}
+      {/* <ButtonComponent title={"Login"} onPress={() => {console.log("tapped")}} />  */}
       {/* <WelcomeScreen /> */}
       {/* <ViewImageScreen />  */}
       {/* <View
@@ -112,7 +142,6 @@ export default function App() {
         <MaterialCommunityIcons name="instagram" size={40} />
         <MaterialCommunityIcons name="twitter" size={40} />
       </View> */}
-
     </>
   );
 }
