@@ -8,6 +8,7 @@ import colors from "../config/colors";
 import ListItemSeperator from "../config/ListItemSeperator";
 import ListItemDeleteAction from "../config/ListItemDeleteAction";
 
+
 const MessagesScreen = () => {
   const initialMessages = [
     // {

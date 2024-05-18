@@ -33,12 +33,14 @@ import PracticeComponent from "./components/PracticeComponent";
 import AppTextInput from "./config/AppTextInput";
 import AppPicker from "./config/AppPicker";
 import LoginScreen from "./components/LoginScreen";
+import RegisterScreen from "./components/RegisterScreen";
+import ListingItemScreen from "./components/ListingItemScreen";
 
 export default function App() {
-  console.log(Dimensions.get("window"), "window");
-  console.log(Dimensions.get("screen"), "screen");
+  // console.log(Dimensions.get("window"), "window");
+  // console.log(Dimensions.get("screen"), "screen");
 
-  console.log(useImageDimensions(), "dimensions", useDeviceOrientation());
+  // console.log(useImageDimensions(), "dimensions", useDeviceOrientation());
   const orientation = useDeviceOrientation();
   console.log(orientation);
 
@@ -78,7 +80,9 @@ export default function App() {
 
   return (
     <>
-      <LoginScreen />
+      <ListingItemScreen />
+      {/* <RegisterScreen /> */}
+      {/* <LoginScreen /> */}
       {/* <Screen>
         <PracticeComponent />
         <AppPicker 

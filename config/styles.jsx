@@ -4,7 +4,7 @@ import colors from './colors';
 export default {
     text: {
         fontSize: 18,
-        fontFamily: Platform.OS == 'ios' ? 'Courier' : 'Roboto',
+        fontFamily: Platform.OS == 'ios' ? 'Sans-serif' : 'Roboto',
         color: colors.dark,
     },
 }

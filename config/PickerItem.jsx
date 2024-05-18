@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
-import AppText from './AppText.android'
+import AppText from './AppText'
 import colors from './colors'
 
 const PickerItem = ({label, onPress}) => {

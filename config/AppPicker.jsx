@@ -16,7 +16,7 @@ import ButtonComponent from "../components/ButtonComponent";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-const AppPicker = ({icon, items, placeholder, selectedItem, onSelectItem }) => {
+const AppPicker = ({icon, items, placeholder, selectedItem, onSelectItem, PickerItemComponent=PickerItem }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <Fragment>
@@ -35,7 +35,17 @@ const AppPicker = ({icon, items, placeholder, selectedItem, onSelectItem }) => {
           <AppText
             style={{ ...styles.text, color: "black", fontFamily: "Sans-serif" }}
           >
-            { selectedItem ? selectedItem.label :  placeholder}
+            { selectedItem ? 
+              <AppText style={{...styles.text, color: colors.medium}} > {selectedItem.label} </AppText> :  
+            <AppText style={{...styles.placeholder, color: colors.medium }} > {placeholder} </AppText>
+             }
+             {/* {
+              selectedItem ? 
+              <Text> {selectedItem.label} </Text>
+              :
+              <Text> {placeholder} </Text>
+             } */}
+             
           </AppText>
           <MaterialCommunityIcons
             name="chevron-down"
@@ -52,11 +62,14 @@ const AppPicker = ({icon, items, placeholder, selectedItem, onSelectItem }) => {
                 data = {items}
                 keyExtractor={item => item.value.toString()}
                 renderItem={({item}) => {
-                    return <PickerItem label={item.label} onPress={() => {
+                    return (
+                      <PickerItemComponent label={item.label} onPress={() => {
                         console.log("Category clicked")
                         setModalVisible(false)
                         onSelectItem(item)
                     }} />
+
+                  )
                 }}
             />
             <ButtonComponent
@@ -95,7 +108,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    color: 'black'
   },
+  placeholder: {
+    color: colors.light
+  }
 });
 
 export default AppPicker;
