@@ -7,9 +7,6 @@ import AppPicker from './AppPicker'
 
 const AppFormPicker = ({items, name, numberOfColumns=1, PickerItemComponent, placeholder}) => {
   const {errors, setFieldValue, touched, values} = useFormikContext()
-  console.log()
-  console.log(errors, name, "name")
-  console.log()
 
   return (
     <>
