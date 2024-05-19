@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import React from "react";
 import { useDeviceOrientation } from "@react-native-community/hooks";
-import ButtonComponent from "./ButtonComponent";
+import ButtonComponent from "../config/ButtonComponent";
 import style from "../config/styles";
 import colors from "../config/colors";
 

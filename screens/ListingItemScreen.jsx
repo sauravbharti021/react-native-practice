@@ -2,24 +2,30 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import * as Yup from "yup";
 import Screen from "../config/Screen";
-import {AppForm, AppFormField, SubmitButton} from './forms'
-import AppFormPicker from "./AppFormPicker";
+import {AppForm, AppFormField, SubmitButton} from '../components/forms'
+import AppFormPicker from "../components/picker/AppFormPicker";
 import colors from "../config/colors";
-import CategoryPickerItem from "./CategoryPickerItem";
+import CategoryPickerItem from "../components/picker/CategoryPickerItem";
 
 
 const categories = [
     {
         label: "Furniture",
         value: 1,
+        backgroundColor: 'red',
+        icon: 'apps'
     },
     {
       label: "Clothing",
       value: 2,
+      backgroundColor: 'dodgerblue',
+      icon: 'email'
     },
     {
       label: "Camera",
       value: 3,
+      backgroundColor: 'yellow',
+      icon: 'lock'
     },
 ];
 
@@ -64,7 +70,8 @@ const ListingItemScreen = () => {
                     color={colors.light}
                     items={categories}
                     name="category"
-                    // PickerItemComponent={CategoryPickerItem}
+                    numberOfColumns = {3}
+                    PickerItemComponent={CategoryPickerItem}
                     placeholder="Category"
                 />
                 <AppFormField

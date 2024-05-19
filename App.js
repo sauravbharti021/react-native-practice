@@ -18,29 +18,25 @@ import {
   useImageDimensions,
   useDeviceOrientation,
 } from "@react-native-community/hooks";
-import WelcomeScreen from "./components/WelcomeScreen";
-import ViewImageScreen from "./components/ViewImageScreen";
-import AppText from "./config/AppText";
+import WelcomeScreen from "./screens/WelcomeScreen";
+import ViewImageScreen from "./screens/ViewImageScreen";
+import AppText from "./components/Text/AppText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import style from "./config/styles";
-import ButtonComponent from "./components/ButtonComponent";
-import Card from "./components/Card";
-import ListingDetailsScreen from "./components/ListingDetailsScreen";
-import MessagesScreen from "./components/MessagesScreen";
-import ProfileComponent from "./components/ProfileComponent";
+import ButtonComponent from "./config/ButtonComponent";
+import Card from "./config/Card";
+import ListingDetailsScreen from "./screens/ListingDetailsScreen";
+import MessagesScreen from "./screens/MessagesScreen";
+import ProfileComponent from "./screens/ProfileScreen";
 import Screen from "./config/Screen";
 import PracticeComponent from "./components/PracticeComponent";
-import AppTextInput from "./config/AppTextInput";
-import AppPicker from "./config/AppPicker";
-import LoginScreen from "./components/LoginScreen";
-import RegisterScreen from "./components/RegisterScreen";
-import ListingItemScreen from "./components/ListingItemScreen";
+import AppTextInput from "./components/Text/AppTextInput";
+import AppPicker from "./components/picker/AppPicker";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import ListingItemScreen from "./screens/ListingItemScreen";
 
 export default function App() {
-  // console.log(Dimensions.get("window"), "window");
-  // console.log(Dimensions.get("screen"), "screen");
-
-  // console.log(useImageDimensions(), "dimensions", useDeviceOrientation());
   const orientation = useDeviceOrientation();
   console.log(orientation);
 

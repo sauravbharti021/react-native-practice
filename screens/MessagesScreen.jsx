@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React, { useState } from "react";
 import { FlatList, SafeAreaView, StyleSheet } from "react-native";
-import ListItem from "./ListItem";
+import ListItem from "../components/ListItem/ListItem";
 import Screen from "../config/Screen";
 import Constants from "expo-constants";
 import colors from "../config/colors";
-import ListItemSeperator from "../config/ListItemSeperator";
-import ListItemDeleteAction from "../config/ListItemDeleteAction";
+import ListItemSeperator from "../components/ListItem/ListItemSeperator";
+import ListItemDeleteAction from "../components/ListItem/ListItemDeleteAction";
 
 
 const MessagesScreen = () => {
