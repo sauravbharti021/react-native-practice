@@ -4,7 +4,6 @@ import AppText from '../Text/AppText'
 import colors from '../../config/colors'
 
 const PickerItem = ({item, onPress}) => {
-    console.log(item.label, "lol")
   return (
     <TouchableOpacity onPress={onPress}>
       <AppText style={styles.text}>{item.label}</AppText>

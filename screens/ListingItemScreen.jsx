@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import * as Yup from "yup";
 import Screen from "../config/Screen";
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
@@ -7,6 +7,7 @@ import AppFormPicker from "../components/picker/AppFormPicker";
 import colors from "../config/colors";
 import CategoryPickerItem from "../components/picker/CategoryPickerItem";
 import AppFormImagePicker from "../components/forms/AppFormImagePicker";
+import useLocation from "../hooks/useLocation";
 
 
 const categories = [
@@ -39,7 +40,9 @@ const validationSchema = Yup.object().shape({
 });
 
 const ListingItemScreen = () => {
-  
+    
+  const location = useLocation()
+
   return (
     <Screen style={styles.container}>
         <AppForm

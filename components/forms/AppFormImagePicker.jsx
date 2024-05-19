@@ -6,7 +6,6 @@ import {useFormikContext} from 'formik'
 const AppFormImagePicker = ({name}) => {
 const {errors, setFieldValue, touched, values} = useFormikContext()
 const imageUris = values[name]
-console.log(imageUris, "imagelol", values)
   return (
     <>
         <ImageInputList 
