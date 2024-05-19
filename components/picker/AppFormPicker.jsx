@@ -1,11 +1,11 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { ErrorMessage } from './forms'
-import Screen from '../config/Screen'
+import { ErrorMessage } from '../forms'
+import Screen from '../../config/Screen'
 import { useFormikContext } from 'formik'
-import AppPicker from '../config/AppPicker'
+import AppPicker from './AppPicker'
 
-const AppFormPicker = ({items, name, PickerItemComponent, placeholder}) => {
+const AppFormPicker = ({items, name, numberOfColumns=1, PickerItemComponent, placeholder}) => {
   const {errors, setFieldValue, touched, values} = useFormikContext()
   console.log()
   console.log(errors, name, "name")
@@ -15,6 +15,7 @@ const AppFormPicker = ({items, name, PickerItemComponent, placeholder}) => {
     <>
       <AppPicker 
         items = {items}
+        numberOfColumns={numberOfColumns}
         onSelectItem = {(item) => setFieldValue(name, item)}
         PickerItemComponent={PickerItemComponent}
         placeholder= {placeholder}

@@ -9,14 +9,14 @@ import {
 } from "react-native";
 import React, { Fragment, useState } from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import colors from "./colors";
-import defaultStyles from "../config/styles";
-import AppText from "./AppText";
-import ButtonComponent from "../components/ButtonComponent";
-import Screen from "./Screen";
+import colors from "../../config/colors";
+import defaultStyles from "../../config/styles";
+import AppText from "../Text/AppText";
+import ButtonComponent from "../../config/ButtonComponent";
+import Screen from "../../config/Screen";
 import PickerItem from "./PickerItem";
 
-const AppPicker = ({icon, items, placeholder, selectedItem, onSelectItem, PickerItemComponent=PickerItem }) => {
+const AppPicker = ({icon, items, numberOfColumns=1, placeholder, selectedItem, onSelectItem, PickerItemComponent=PickerItem }) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <Fragment>
@@ -61,13 +61,17 @@ const AppPicker = ({icon, items, placeholder, selectedItem, onSelectItem, Picker
             <FlatList
                 data = {items}
                 keyExtractor={item => item.value.toString()}
+                numColumns={numberOfColumns}
                 renderItem={({item}) => {
                     return (
-                      <PickerItemComponent label={item.label} onPress={() => {
-                        console.log("Category clicked")
-                        setModalVisible(false)
-                        onSelectItem(item)
-                    }} />
+                      <PickerItemComponent 
+                        item={item}
+                        onPress={() => {
+                          console.log("Category clicked")
+                          setModalVisible(false)
+                          onSelectItem(item)
+                        }} 
+                      />
 
                   )
                 }}

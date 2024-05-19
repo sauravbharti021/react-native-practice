@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { TouchableHighlight } from 'react-native'
-import AppText from './AppText'
-import colors from './colors'
+import AppText from '../Text/AppText'
+import colors from '../../config/colors'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 
 const RowLister = ({title, subTitle=null, image=null, icon=null, style, marginBottomProvided=0}) => {

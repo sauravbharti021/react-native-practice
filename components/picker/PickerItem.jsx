@@ -1,13 +1,13 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
-import AppText from './AppText'
-import colors from './colors'
+import AppText from '../Text/AppText'
+import colors from '../../config/colors'
 
-const PickerItem = ({label, onPress}) => {
-    console.log(label, "lol")
+const PickerItem = ({item, onPress}) => {
+    console.log(item.label, "lol")
   return (
     <TouchableOpacity onPress={onPress}>
-      <AppText style={styles.text}>{label}</AppText>
+      <AppText style={styles.text}>{item.label}</AppText>
     </TouchableOpacity>
   )
 }

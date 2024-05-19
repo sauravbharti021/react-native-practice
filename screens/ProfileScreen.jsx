@@ -1,10 +1,10 @@
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import React from "react";
 import Screen from "../config/Screen";
-import AppText from "../config/AppText";
+import AppText from "../components/Text/AppText";
 import { TouchableHighlight, Image } from "react-native";
 import colors from "../config/colors";
-import RowLister from "../config/RowLister";
+import RowLister from "../components/ListItem/RowLister";
 
 const ProfileComponent = ({ title, subTitle }) => {
   const messages = {};

@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import AppTextInput from '../../config/AppTextInput'
+import AppTextInput from '../Text/AppTextInput'
 import ErrorMessage from './ErrorMessage'
 import { useFormikContext } from 'formik'
 
