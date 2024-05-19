@@ -5,18 +5,8 @@ import { Formik } from 'formik'
 const AppForm = ({ initialValues, onSubmit, validationSchema, children }) => {
   return (
     <Formik 
-        initialValues={{ 
-            name: "",
-            email: "",
-            password: "",
-            title: "",
-            price: "",
-            description: "",
-            category: null
-        }}
-        onSubmit={(values) => {
-            console.log(values)
-        }}
+        initialValues={initialValues}
+        onSubmit={onSubmit}
         validationSchema={validationSchema}
     >
         {children}

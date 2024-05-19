@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../../config/colors";
 import defaultStyles from "../../config/styles";
 const AppTextInput = ({ icon, ...otherProps }) => {
-  console.log(otherProps.color, "lol")
+  
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons

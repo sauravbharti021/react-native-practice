@@ -8,8 +8,6 @@ const CategoryPickerItem = ({ item, onPress }) => {
   return (
     <TouchableOpacity style={{...styles.container}} onPress={()=>{
       onPress()
-      console.log("hi")
-
     }
       }>
         <Icon backgroundColor={item.backgroundColor} name={item.icon} />   

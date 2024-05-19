@@ -18,6 +18,7 @@ import {
   useImageDimensions,
   useDeviceOrientation,
 } from "@react-native-community/hooks";
+import * as ImagePicker from "expo-image-picker";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import ViewImageScreen from "./screens/ViewImageScreen";
 import AppText from "./components/Text/AppText";
@@ -35,12 +36,25 @@ import AppPicker from "./components/picker/AppPicker";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ListingItemScreen from "./screens/ListingItemScreen";
+import ImageInputList from "./components/ImageInput/ImageInputList";
 
 export default function App() {
+  const [imageUris, setImageUris] = useState([]);
 
   return (
     <>
+      <Screen>
+        {/* <ImageInputList
+          imageUris={imageUris}
+          onAddImage={(uri) => {
+            setImageUris([...imageUris, uri]);
+          }}
+          onRemoveImage={(uri)=> {
+            setImageUris( (prevState) => prevState.filter((u) => uri!==u))
+          }}
+        /> */}
       <ListingItemScreen />
+      </Screen>
       {/* <RegisterScreen /> */}
       {/* <LoginScreen /> */}
       {/* <Screen>
@@ -54,7 +68,7 @@ export default function App() {
         />
         <AppTextInput icon="email" placeholder="Email" />
       </Screen> */}
-    
+
       {/* <ProfileComponent title="Mosh Bhai" subTitle="Moshbhai123@gmail.com" /> */}
       {/* <MessagesScreen /> */}
       {/* <ListingDetailsScreen /> */}
@@ -62,8 +76,6 @@ export default function App() {
       {/* <ButtonComponent title={"Login"} onPress={() => {console.log("tapped")}} />  */}
       {/* <WelcomeScreen /> */}
       {/* <ViewImageScreen />  */}
-
     </>
   );
 }
-

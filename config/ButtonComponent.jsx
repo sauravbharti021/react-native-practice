@@ -6,7 +6,7 @@ const ButtonComponent = ({title, onPress, color}) => {
   return (
     // <Button style={styles.button} title='Login' />
     <TouchableOpacity style={{...styles.button, backgroundColor: color}} onPress={onPress}>
-        <Text style={styles.textButton}>{title}</Text>
+        <Text style={{...styles.textButton}}>{title}</Text>
     </TouchableOpacity>
   )
 }

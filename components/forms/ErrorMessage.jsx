@@ -4,7 +4,6 @@ import AppText from "../Text/AppText";
 import colors from "../../config/colors";
 
 const ErrorMessage = ({ error, visible }) => {
-  console.log(!error, !visible)
   if (!error || !visible) return null;
 
   return <AppText style={styles.error}>{error}</AppText>;
