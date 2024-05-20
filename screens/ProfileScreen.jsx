@@ -5,8 +5,10 @@ import AppText from "../components/Text/AppText";
 import { TouchableHighlight, Image } from "react-native";
 import colors from "../config/colors";
 import RowLister from "../components/ListItem/RowLister";
+import route from "../navigation/route";
 
-const ProfileScreen = ({ title, subTitle }) => {
+
+const ProfileScreen = ({ title, subTitle, navigation }) => {
   const messages = {};
 
   return (
@@ -44,6 +46,9 @@ const ProfileScreen = ({ title, subTitle }) => {
           color: colors.black,
         }}
         marginBottomProvided={10}
+        onPress = {()=> {
+          navigation.navigate(route.MESSAGES)
+        }}
       />
 
       <RowLister

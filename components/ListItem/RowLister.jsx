@@ -1,18 +1,18 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableWithoutFeedback, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { TouchableHighlight } from 'react-native'
 import AppText from '../Text/AppText'
 import colors from '../../config/colors'
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 
-const RowLister = ({title, subTitle=null, image=null, icon=null, style, marginBottomProvided=0}) => {
+const RowLister = ({title, subTitle=null, image=null, icon=null, style, marginBottomProvided=0, onPress}) => {
 
     const fontTitleColor = colors.black;
     const fontSubTitleColor = image ? '#afb0b3' : colors.black;
     const fontWeightTitle = image? 700 : 400;
 
   return (
-    <TouchableHighlight>
+    <TouchableOpacity onPress={onPress}>
         <View style={{...styles.container, marginBottom: marginBottomProvided, borderBottomColor: colors.light, borderBottomWidth: 1.5}}>
             {
                 image && <Image style={{...styles.image }} source={image} />
@@ -30,7 +30,7 @@ const RowLister = ({title, subTitle=null, image=null, icon=null, style, marginBo
             }
             </View>
         </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   )
 }
 

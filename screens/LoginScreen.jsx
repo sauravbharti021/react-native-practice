@@ -3,13 +3,15 @@ import React, { useState } from 'react'
 import Screen from '../config/Screen'
 import * as Yup from "yup";
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
+import AppNavigator from '../navigation/AppNavigator';
+import route from '../navigation/route';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),
     password: Yup.string().required().min(4).label("Password"),
 });
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
 
   return (
     <Screen style={styles.container}>
@@ -21,6 +23,7 @@ const LoginScreen = () => {
             }}
             onSubmit={(values) => {
                 console.log(values)
+                // navigation.navigate(route.ACCOUNT)
             }}
             validationSchema={validationSchema}
         >
