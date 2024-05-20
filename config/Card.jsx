@@ -1,24 +1,27 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native'
 import React from 'react'
 import colors from './colors'
 import AppText from '../components/Text/AppText'
 
-const Card = ({title, subTitle, image}) => {
+const Card = ({title, subTitle, image, onPress}) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.card}>
-        <Image style={{ ...styles.image,resizeMode: 'contain'}} source={image} />
+    <TouchableWithoutFeedback onPress={onPress}>
 
-        <View style={styles.detailsContainer}>
-            <AppText style={styles.title} >
-                {title}
-            </AppText>
-            <AppText style={styles.subTitle}>
-                {subTitle}
-            </AppText>
+        <View style={styles.container}>
+        <View style={styles.card}>
+            <Image style={{ ...styles.image,resizeMode: 'contain'}} source={image} />
+
+            <View style={styles.detailsContainer}>
+                <AppText style={styles.title} >
+                    {title}
+                </AppText>
+                <AppText style={styles.subTitle}>
+                    {subTitle}
+                </AppText>
+            </View>
         </View>
-      </View>
-    </View>
+        </View>
+    </TouchableWithoutFeedback>
   )
 }
 
@@ -26,13 +29,12 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#f8f4f4',
         padding: 20,
-        paddingTop: 100
     },
     card : {
         width: '100%',
         borderRadius: 30,
         backgroundColor: colors.white,
-        marginBottom: 20,
+        // marginBottom: 20,
     },
     image: {
         width: '100%',

@@ -28,7 +28,7 @@ import ButtonComponent from "./config/ButtonComponent";
 import Card from "./config/Card";
 import ListingDetailsScreen from "./screens/ListingDetailsScreen";
 import MessagesScreen from "./screens/MessagesScreen";
-import ProfileComponent from "./screens/ProfileScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 import Screen from "./config/Screen";
 import PracticeComponent from "./components/PracticeComponent";
 import AppTextInput from "./components/Text/AppTextInput";
@@ -42,6 +42,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import AuthNavigator from "./navigation/AuthNavigator";
+import NavigationTheme from "./navigation/NavigationTheme";
+import AppNavigator from "./navigation/AppNavigator";
 
 const Link = ({}) => {
   const navigation = useNavigation()
@@ -147,10 +149,11 @@ export default function App() {
   return (
     <>
 
-      <NavigationContainer>
+      <NavigationContainer theme={NavigationTheme}>
         {/* <StackNavigator /> */}
         {/* <TabNavigator /> */}
-        <AuthNavigator />
+        {/* <AuthNavigator /> */}
+        <AppNavigator />
       </NavigationContainer>
       {/* <Screen>
 
@@ -170,7 +173,7 @@ export default function App() {
         <AppTextInput icon="email" placeholder="Email" />
       </Screen> */}
 
-      {/* <ProfileComponent title="Mosh Bhai" subTitle="Moshbhai123@gmail.com" /> */}
+      {/* <ProfileScreen title="Mosh Bhai" subTitle="Moshbhai123@gmail.com" /> */}
       {/* <MessagesScreen /> */}
       {/* <ListingDetailsScreen /> */}
       {/* <Card title={"Clothes"} subTitle={"$100"} image={require(`./assets/jacket.jpg`)} /> */}

@@ -12,7 +12,7 @@ const ListItem = ({image, title, subTitle, onPress, renderRightActions}) => {
     return (
     <GestureHandlerRootView>
 
-        <Swipeable renderRightActions={renderRightActions}>
+        {/* <Swipeable renderRightActions={renderRightActions}> */}
 
             <TouchableHighlight 
                 underlayColor={colors.light}
@@ -31,7 +31,7 @@ const ListItem = ({image, title, subTitle, onPress, renderRightActions}) => {
                     />
                 </View>
             </TouchableHighlight>
-        </Swipeable>
+        {/* </Swipeable> */}
     </GestureHandlerRootView>
   )
 }
