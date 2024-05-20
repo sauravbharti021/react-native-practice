@@ -11,7 +11,6 @@ const RowLister = ({title, subTitle=null, image=null, icon=null, style, marginBo
     const fontSubTitleColor = image ? '#afb0b3' : colors.black;
     const fontWeightTitle = image? 700 : 400;
 
-    console.log(style, marginBottomProvided, {...styles.container, marginBottom: marginBottomProvided})  
   return (
     <TouchableHighlight>
         <View style={{...styles.container, marginBottom: marginBottomProvided, borderBottomColor: colors.light, borderBottomWidth: 1.5}}>

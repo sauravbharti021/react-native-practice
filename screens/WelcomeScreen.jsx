@@ -13,7 +13,7 @@ import ButtonComponent from "../config/ButtonComponent";
 import style from "../config/styles";
 import colors from "../config/colors";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({navigation}) => {
   // console.log(StatusBar.currentHeight, "status bar", Platform.OS, StatusBar)
   return (
     <ImageBackground
@@ -30,8 +30,8 @@ const WelcomeScreen = () => {
         <Text style={styles.tagLine}>Sell, what's useless to you!!</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <ButtonComponent title="Login" color={colors.primary} />
-        <ButtonComponent title="register" color={colors.secondary} />
+        <ButtonComponent title="Login" color={colors.primary} onPress={() => navigation.navigate('Login')} />
+        <ButtonComponent title="register" color={colors.secondary} onPress={() => navigation.navigate('Register')}  />
       </View>
     </ImageBackground>
   );

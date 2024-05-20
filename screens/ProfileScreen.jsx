@@ -6,7 +6,7 @@ import { TouchableHighlight, Image } from "react-native";
 import colors from "../config/colors";
 import RowLister from "../components/ListItem/RowLister";
 
-const ProfileComponent = ({ title, subTitle }) => {
+const ProfileScreen = ({ title, subTitle }) => {
   const messages = {};
 
   return (
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileComponent;
+export default ProfileScreen;
