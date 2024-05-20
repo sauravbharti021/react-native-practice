@@ -7,14 +7,16 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 
-const DefaultListItem = ({title, subTitle, image, onPress}) => {
+const DefaultListItem = ({title, subTitle, image, onPress, swipeable}) => {
+    const currentImage = !swipeable ? {uri: image} : image;
+    
     return (
         <TouchableHighlight 
                 underlayColor={colors.light}
                 onPress={onPress}
             >
                 <View style={styles.container}>
-                    <Image style={styles.image} source={image} />
+                    <Image style={styles.image} source ={currentImage}/>
                     <View style={styles.detailsContainer} >
                         <AppText style={styles.title} numberOfLines={1}>{title}</AppText>
                         { subTitle && <AppText style={styles.subTitle} numberOfLines={2} >{subTitle}</AppText> }
@@ -37,12 +39,12 @@ const ListItem = ({image, title, subTitle, onPress, renderRightActions, swipeabl
                     <GestureHandlerRootView>
             
                         <Swipeable renderRightActions={renderRightActions}>
-                            <DefaultListItem title={title} subTitle={subTitle} image={image} onPress={onPress} />
+                            <DefaultListItem title={title} subTitle={subTitle} image={image} onPress={onPress} swipeable={swipeable} />
                         </Swipeable>
                     </GestureHandlerRootView>
                 ) :
                 (
-                    <DefaultListItem title={title} subTitle={subTitle} image={image} onPress={onPress} />
+                    <DefaultListItem title={title} subTitle={subTitle} image={image} onPress={onPress} swipeable={swipeable} />
                 )
         
   )

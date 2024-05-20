@@ -3,13 +3,13 @@ import React from 'react'
 import colors from './colors'
 import AppText from '../components/Text/AppText'
 
-const Card = ({title, subTitle, image, onPress}) => {
+const Card = ({title, subTitle, imageUrl, onPress}) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
 
         <View style={styles.container}>
         <View style={styles.card}>
-            <Image style={{ ...styles.image,resizeMode: 'contain'}} source={image} />
+            <Image style={{ ...styles.image,resizeMode: 'contain'}} source={{uri: imageUrl }}/>
 
             <View style={styles.detailsContainer}>
                 <AppText style={styles.title} >

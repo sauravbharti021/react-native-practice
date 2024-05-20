@@ -52,7 +52,6 @@ export default function App() {
   return (
     <>
       <Screen>
-        
         <NavigationContainer theme={NavigationTheme}>
           {/* <AuthNavigator /> */}
           <AppNavigator />
@@ -62,3 +61,4 @@ export default function App() {
     </>
   );
 }
+
