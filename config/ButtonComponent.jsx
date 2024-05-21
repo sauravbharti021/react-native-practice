@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
         // backgroundColor: colors.primary,
         borderRadius: 20,
         justifyContent: 'space-around',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        marginVertical: 5
     },
     textButton: {
         textAlign: 'center',

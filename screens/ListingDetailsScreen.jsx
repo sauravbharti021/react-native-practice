@@ -8,7 +8,7 @@ const ListingDetailsScreen = ({route}) => {
   const listings = route.params
   return (
     <View>
-      <Image style={styles.image} source={listings.image}/>
+      <Image style={styles.image} source={{uri : listings.images[0].url}}/>
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>
             {listings.title}
@@ -19,7 +19,7 @@ const ListingDetailsScreen = ({route}) => {
 
         <View style={styles.userContainer}>
             <ListItem 
-                image={listings.image}
+                image={listings.images[0].url}
                 title={listings.title}
                 subTitle="3 Listings"
                 swipeable={false}

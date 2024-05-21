@@ -1,10 +1,13 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Screen from '../config/Screen'
 import * as Yup from "yup";
-import {AppForm, AppFormField, SubmitButton} from '../components/forms'
+import {AppForm, AppFormField, SubmitButton, ErrorMessage} from '../components/forms'
 import AppNavigator from '../navigation/AppNavigator';
 import route from '../navigation/route';
+import auth from '../api/auth';
+import {jwtDecode} from 'jwt-decode'
+import AuthContext from '../auth/context';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),
@@ -12,6 +15,25 @@ const validationSchema = Yup.object().shape({
 });
 
 const LoginScreen = ({navigation}) => {
+
+    const [error, setError] = useState(false)
+    const {user, setUser} = useContext(AuthContext)
+    
+    console.log(user,"lol hahah")
+    const handleSubmit = async({email, password}) => {
+        try{
+            const response = await auth.login(email, password)
+            if(!response || !response.ok){
+                setError(true)
+            }else{
+                setError(false)
+                const details = jwtDecode(response.data)
+                setUser(details)
+            }
+        }catch(err){
+            console.log(err)
+        }
+    }
 
   return (
     <Screen style={styles.container}>
@@ -21,13 +43,11 @@ const LoginScreen = ({navigation}) => {
                 email: "",
                 password: ""
             }}
-            onSubmit={(values) => {
-                console.log(values)
-                // navigation.navigate(route.ACCOUNT)
-            }}
+            onSubmit={handleSubmit}
             validationSchema={validationSchema}
         >
-            <>
+            <>  
+                <ErrorMessage error="Invalid email or password." visible={error} />
                 <AppFormField
                     icon="email"
                     autoCapitalize="none"
