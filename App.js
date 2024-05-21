@@ -46,47 +46,28 @@ import NavigationTheme from "./navigation/NavigationTheme";
 import AppNavigator from "./navigation/AppNavigator";
 import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import OfflineNotice from "./components/OfflineNotice";
+import AuthContext from "./auth/context";
 
 export default function App() {
 
-  // NetInfo.fetch().then(state => {
-  //   console.log("connection type", state.type)
-  //   console.log('Is connected?', state.isConnected)
-  //   console.log(state, "state")
-  //   console.log("Internet Reachable", state.isInternetReachable)
-  // })
-  // const netInfo = useNetInfo();
-  // const unsubscribe = NetInfo.addEventListener((netInfo) => console.log("Internet Rechable", netInfo.isInternetReachable))
-  // console.log(netInfo.isInternetReachable, "netInfo");
-
-  // const demoStorage = async( ) => {
-  //   try{
-  //     await AsyncStorage.setItem('person', JSON.stringify({id : 1}))
-  //     const value = await AsyncStorage.getItem('person')
-  //     const person = JSON.parse(value)
-  //     console.log(person)
-  //     console.log(AsyncStorage.getAllKeys(), "lol")
-  //   }catch(err){
-  //     console.log(err)
-  //   }
-
-  // }
-  // demoStorage()
-
-  // if(!netInfo.isInternetReachable){
-  //   return <Screen>
-  //     <ButtonComponent color="dodgerblue" title="Refresh"  />
-  //   </Screen>
-  // }
+  const [user, setUser] = useState()
 
   return (
     <>
-      <Screen>
-        <NavigationContainer theme={NavigationTheme}>
-          {/* <AuthNavigator /> */}
-          <AppNavigator />
-        </NavigationContainer>
-      </Screen>
+      <AuthContext.Provider value={{user, setUser}}>
+        <Screen>
+          <OfflineNotice />
+          <NavigationContainer theme={NavigationTheme}>
+            {
+              !user ?
+              <AuthNavigator />
+              :
+              <AppNavigator />
+            }
+          </NavigationContainer>
+        </Screen>
+      </AuthContext.Provider>
 
     </>
   );

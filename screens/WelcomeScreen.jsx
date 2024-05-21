@@ -15,6 +15,7 @@ import colors from "../config/colors";
 
 const WelcomeScreen = ({navigation}) => {
   // console.log(StatusBar.currentHeight, "status bar", Platform.OS, StatusBar)
+
   return (
     <ImageBackground
       source={require("../assets/background.jpg")}
@@ -40,9 +41,7 @@ const WelcomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    justifyContent: "flex-end",
-    paddingTop: Platform.OS == "ios" ? 50 : 30,
-    position: "relative",
+    justifyContent: "flex-end", 
   },
   logoContainer: {
     position: "absolute",
@@ -69,6 +68,9 @@ const styles = StyleSheet.create({
   buttonContainer: {
     margin: 20,
   },
+  button: {
+    marginVertical: 10
+  }
 });
 
 export default WelcomeScreen;

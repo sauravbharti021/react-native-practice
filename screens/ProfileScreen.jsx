@@ -1,21 +1,24 @@
 import { View, Text, FlatList, StyleSheet } from "react-native";
-import React from "react";
+import React, {useContext} from "react";
 import Screen from "../config/Screen";
 import AppText from "../components/Text/AppText";
 import { TouchableHighlight, Image } from "react-native";
 import colors from "../config/colors";
 import RowLister from "../components/ListItem/RowLister";
 import route from "../navigation/route";
-
+import AuthContext from "../auth/context";
 
 const ProfileScreen = ({ title, subTitle, navigation }) => {
-  const messages = {};
+  const {user, setUser} = useContext(AuthContext)
 
+  const logOut = () => {
+    setUser(null)
+  }
   return (
     <Screen style={styles.screen}>
       <RowLister
-        title="Mosh"
-        subTitle="mosh123@gmail.com"
+        title={user.name}
+        subTitle={user.email}
         image={require("../assets/mosh.jpg")}
         style={{
           marginBottom: 10
@@ -58,6 +61,7 @@ const ProfileScreen = ({ title, subTitle, navigation }) => {
           size: 30,
         }}
         style={{ ...styles.icon, backgroundColor: "#ffe66d" }}
+        onPress={logOut}
       />
     </Screen>
   );
