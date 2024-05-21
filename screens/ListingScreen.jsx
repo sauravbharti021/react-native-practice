@@ -29,8 +29,6 @@ function ListingScreen({navigation}) {
   
   const {data: listings, error, loading, request: listLoader } = useApi(listingsApi.getListings)
 
-  console.log(listings)
-  console.log("Error", error)
   useEffect (()=> {    
     listLoader()
   }, [])

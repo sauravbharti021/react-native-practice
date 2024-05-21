@@ -8,10 +8,10 @@ const ImageInputList = ({imageUris = [], onAddImage, onRemoveImage}) => {
     <View style={styles.container}>
         <ImageInput onChangeImage={(uri)=> onAddImage(uri)} />
         <ScrollView horizontal={true} >
-          { imageUris.map((uri) => {
+          { imageUris.map((uri, index) => {
             return (
               <View style={styles.image}>
-                <ImageInput imageUri={uri} onChangeImage={()=> onRemoveImage(uri)} />
+                <ImageInput imageUri={uri} key={uri+index} onChangeImage={()=> onRemoveImage(uri)} />
               </View>
             )
           })}

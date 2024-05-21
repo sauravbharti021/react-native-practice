@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import Screen from "../config/Screen";
 import {AppForm, AppFormField, SubmitButton} from '../components/forms'
@@ -8,6 +8,8 @@ import colors from "../config/colors";
 import CategoryPickerItem from "../components/picker/CategoryPickerItem";
 import AppFormImagePicker from "../components/forms/AppFormImagePicker";
 import useLocation from "../hooks/useLocation";
+import listingsApi from "../api/listingsApi";
+import UploadScreen from "./UploadScreen";
 
 
 const categories = [
@@ -43,8 +45,29 @@ const ListingItemScreen = () => {
     
   const location = useLocation()
 
+  const [uploadScreenVisible, setUploadScreenVisible] = useState(false)
+  const [progress, setProgress] = useState(0)
+
+  const handleSubmit = async(listing, {resetForm})=> {
+    setProgress(0)
+    setUploadScreenVisible(true)
+    const result = await listingsApi.addListings({...listing, location},
+        (progress) => setProgress(progress)
+    )
+
+    if(!result.ok){
+        return alert("Couldn't save the listing")
+    }else{
+        setUploadScreenVisible(false);
+        alert('Success')
+    }
+
+    resetForm()
+  }
+
   return (
     <Screen style={styles.container}>
+        <UploadScreen progress={progress} visible={uploadScreenVisible} />
         <AppForm
             initialValues={{
                 title: "",
@@ -53,7 +76,7 @@ const ListingItemScreen = () => {
                 category: "",
                 images: []
             }}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={handleSubmit}
             validationSchema={validationSchema}
         >
             <>  

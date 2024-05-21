@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
         width: '100%',
         borderRadius: 30,
         backgroundColor: colors.white,
+        overflow: 'hidden'
         // marginBottom: 20,
     },
     image: {
